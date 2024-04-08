@@ -35,6 +35,9 @@ body {
    display: flex;
    flex-direction: row;
 }
+.logo > p {
+    margin: 0;
+}
 .addPokemonBtn {
     font-family: "Pixelify Sans", sans-serif;
     align-self: center;
