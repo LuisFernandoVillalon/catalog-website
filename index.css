@@ -162,14 +162,3 @@ form > div {
         transform: translateX(0);
     }
 }
-.bottom-to-top {
-    animation: bottom-to-top 1.5s ease forwards;
-}
-@keyframes bottom-to-top {
-    0% {
-        transform: translateY(100%);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
