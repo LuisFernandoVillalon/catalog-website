@@ -13,12 +13,11 @@ function saveBox(boxArr) {
 window.onload = () => {
      if (localStorage.getItem("storedBox") === null) {
        for ( let i = 0; i < pokedexData.length; ++i ) {
-        //adds to myBox array only when i is divisble by 71, if there is nothing stored in local storage. 
+        //adds to myBox array only when i is divisble by 91, if there is nothing stored in local storage. 
             if (i % 91 == 0) {
                 myBox.push(pokedexData[i]);
             }
        }
-        // myBox = [pokedexData[302],  pokedexData[423],  pokedexData[298], pokedexData[94], pokedexData[342], pokedexData[866], pokedexData[289], pokedexData[49]];
      } else {
          let storedBox = JSON.parse(localStorage.getItem("storedBox"));
          storedBox.map((key) => {
@@ -39,7 +38,10 @@ function displayBox() {
         const number = document.createElement('p');
         const name = document.createElement('p');
         const image = document.createElement('img');
-        const type = document.createElement('p');
+        const typeTextContainer = document.createElement('div');
+        const typeText = document.createElement('p');
+        const type1Color = document.createElement('p');
+        const type2Color = document.createElement('p');
         const species = document.createElement('p');
         const releaseButton = document.createElement('button');
 
@@ -56,17 +58,70 @@ function displayBox() {
         number.innerHTML = "Num. " + currPoke.id;
         name.innerHTML = currPoke.name.english;
         image.src = currPoke.image.hires;
-        type.innerHTML = "Type:"
+        typeText.innerHTML = "Type:";
+        //display all the Pokemon's type with assigned color.
         for (let i = 0; i < currPoke.type.length; i++) {
-            type.innerHTML += " " + currPoke.type[i]
+            let temp  = "";
+            if (i == 0) {
+                temp = type1Color;
+            } else if (i == 1) {
+                temp = type2Color;
+            }
+            temp.innerHTML += " " + currPoke.type[i];
+            const currType = currPoke.type[i].toLowerCase();
+            if(currType == "normal") {
+                temp.classList.add('normal');
+            } else if(currType == "fire") {
+                temp.classList.add('fire');
+            } else if(currType == "water") {
+                temp.classList.add('water');
+            } else if(currType == "electric") {
+                temp.classList.add('electric');
+            } else if(currType == "grass") {
+                temp.classList.add('grass');
+            } else if(currType == "ice") {
+                temp.classList.add('ice');
+            } else if(currType == "fighting") {
+                temp.classList.add('fighting');
+            } else if(currType == "poison") {
+                temp.classList.add('poison');
+            } else if(currType == "ground") {
+                temp.classList.add('ground');
+            } else if(currType == "flying") {
+                temp.classList.add('flying');
+            } else if(currType == "psychic") {
+                temp.classList.add('psychic');
+            } else if(currType == "psychic") {
+                temp.classList.add('psychic');
+            } else if(currType == "bug") {
+                temp.classList.add('bug');
+            } else if(currType == "rock") {
+                temp.classList.add('rock');
+            } else if(currType == "ghost") {
+                temp.classList.add('ghost');
+            } else if(currType == "dragon") {
+                temp.classList.add('dragon');
+            } else if(currType == "dark") {
+                temp.classList.add('dark');
+            } else if(currType == "steel") {
+                temp.classList.add('steel');
+            } else if(currType == "fairy") {
+                temp.classList.add('fairy');
+            }
         }
         species.innerHTML = "The \"" + currPoke.species + "\"";
         releaseButton.innerHTML = "Release";
 
+        typeTextContainer.appendChild(typeText);
+        typeTextContainer.appendChild(type1Color);
+        typeTextContainer.appendChild(type2Color);
+        typeTextContainer.classList.add('type-text-container');
+
+
         pCard.append(number);
         pCard.append(name);
         pCard.append(image);
-        pCard.append(type);
+        pCard.append(typeTextContainer);
         pCard.append(species);
         pCard.append(releaseButton);
 
