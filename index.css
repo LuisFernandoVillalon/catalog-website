@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+
+body {
+    background-color: rgb(42, 117, 187);
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Pixelify Sans", sans-serif;
+    justify-content: space-between;
+}
+.utilities-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.utilities-container > label{
+    color:rgb(255, 203, 5);
+    font-size: 2rem;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 203, 5);
+
+}
+.logo {
+   color: rgb(255, 203, 5); 
+   -webkit-text-stroke: 2.5px  rgb(42, 117, 187); /* width and color */
+   font-size: 6rem;
+   font-weight: 800;
+   display: flex;
+   flex-direction: row;
+}
+.addPokemonBtn {
+    font-family: "Pixelify Sans", sans-serif;
+    align-self: center;
+    height: 25%;
+    width: 160px;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 0px;
+    color: rgb(42, 117, 187) ;
+   background-color: rgb(255, 203, 5);;
+   border-width: 0.5rem;
+   border-color: rgb(60, 90, 166);
+   margin: 50px;
+    cursor: pointer;
+}
+.formContainer {
+    display:none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+form {
+    position: absolute;
+    margin-top: 12.5%;
+    left: 43%;
+    width: 175px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(255, 203, 5) ;
+    color: rgb(60, 90, 166);
+    text-align: center;
+}
+form > h4 {
+    margin: 0;
+}
+form > div {
+    color: #701a75;
+    font-size: 20px;
+    padding: 10px;
+    font-weight: 600;
+}
+.Btn {
+    border-color: rgb(60, 90, 166);
+    align-self: center;
+    height: 50px;
+    width: 120px;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 0px;
+   color: rgb(60, 90, 166);
+   background-color: rgb(255, 203, 5);
+   border-radius: 5px;
+   padding: 10px;
+}
+.Btn:hover {
+    cursor: pointer;
+    border-color: rgb(255, 203, 5);
+    color: rgb(255, 203, 5);
+    background-color: rgb(60, 90, 166);
+    border-radius: 5px;
+}
+.card {
+    text-align: center;
+    font-family: "Reddit Mono", monospace;
+    font-size: 25px;
+    padding: 5px;
+    margin: 15px;
+    border-radius: 5px;
+    background-color: rgb(255, 203, 5);
+    color: rgb(60, 90, 166); 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-width: 10px;
+    border-color: rgb(255, 203, 5);
+}
+.card > p {
+    margin: 0;
+}
+.card > img {
+    width: 50%;
+}
+.grid {
+    display: inline-grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    
+    margin-top: 15px;
+}
+.hide {
+    display: none;
+}
+.show {
+    display: block;
+}
+.left-to-right {
+    animation: left-to-right 1.5s ease forwards;
+}
+@keyframes left-to-right {
+    0% {
+        transform: translateX(-250%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.right-to-left {
+    animation: right-to-left 1.5s ease forwards;
+}
+@keyframes right-to-left {
+    0% {
+        transform: translateX(300%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.bottom-to-top {
+    animation: bottom-to-top 1.5s ease forwards;
+}
+@keyframes bottom-to-top {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
