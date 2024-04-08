@@ -70,9 +70,9 @@ function displayBox() {
         pCard.append(species);
         pCard.append(releaseButton);
 
-        currPoke.type.forEach((num, index) => {
-            //if statement filters whihc type to display depening what is selected in the select form
-                if (num.toLowerCase() == displayType || displayType == "") {
+        currPoke.type.forEach((type, index) => {
+            //if statement filters which type to display depening what is selected in the select form
+                if (type.toLowerCase() == displayType || displayType == "") {
                     grid.appendChild(pCard);
                 }
         });
