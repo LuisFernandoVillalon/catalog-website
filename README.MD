@@ -15,7 +15,5 @@ HTML, CSS, JavaScript, module, forms, animations, data structures, arrays, objec
 
 A challanged I faced when creating this application was creating the user interface for the form used to add a new Pokemon. I wanted the form to stand apart from the rest of the page without having the need to create or redirect the user to a new page. I decided to implement the form on a higher z-index from the rest of the page and display a black screen behind. Used a for-loop to traverse the array containing all the information of the Pokemon. Once a match was found with the user's pick, the .push() method was used to add the new Pokemon to the user's collection array and the .splice() method was used to remove the selected Pokemon. A select form was used to update a value that determines which type of Pokemon will be displayed in the grid. 
 
-# Live Preview
-
 
 
