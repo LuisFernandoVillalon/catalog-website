@@ -5,15 +5,16 @@ let myBox = [];
 //variable determines what type of pokemon should be displayed
 let displayType = "";
 
-//function saves the array to the local memory
-function saveBox(boxArr) {
-     localStorage.setItem('storedBox', JSON.stringify(boxArr));
-}
-//function checks if the local storage is populated, if it is it will display whatever it has stored, if not it auto populates it.
+// ----------------------------------------------
+// ----------------------------------------------
+// UI FUNCTIONS: determine what and how the data will be display 
+// ----------------------------------------------
+// ----------------------------------------------
+// function checks if the local storage is populated, if it is it will display whatever it has stored, if not it auto populates it.
 window.onload = () => {
      if (localStorage.getItem("storedBox") === null) {
        for ( let i = 0; i < pokedexData.length; ++i ) {
-        //adds to myBox array only when i is divisble by 91, if there is nothing stored in local storage. 
+        // adds to myBox array only when i is divisble by 91, if there is nothing stored in local storage. 
             if (i % 91 == 0) {
                 myBox.push(pokedexData[i]);
             }
@@ -27,7 +28,7 @@ window.onload = () => {
      displayBox();
 };
 
-//functions runs a loop on the myBox array, creates a card for every pokemon stored in the array.
+// functions runs a loop on the myBox array, creates a card for every pokemon stored in the array.
 function displayBox() {
     let grid = document.querySelector(".grid");
     grid.innerHTML = '';
@@ -59,7 +60,7 @@ function displayBox() {
         name.innerHTML = currPoke.name.english;
         image.src = currPoke.image.hires;
         typeText.innerHTML = "Type:";
-        //display all the Pokemon's type with assigned color.
+        // display all the Pokemon's type with assigned color.
         for (let i = 0; i < currPoke.type.length; i++) {
             let temp  = "";
             if (i == 0) {
@@ -126,7 +127,7 @@ function displayBox() {
         pCard.append(releaseButton);
 
         currPoke.type.forEach((type, index) => {
-            //if statement filters which type to display depening what is selected in the select form
+            // if statement filters which type to display depening what is selected in the select form
                 if (type.toLowerCase() == displayType || displayType == "") {
                     grid.appendChild(pCard);
                 }
@@ -135,7 +136,7 @@ function displayBox() {
     }
 }
 
-//function adds and removes classes in order to display the form ui. 
+// function adds and removes classes in order to display the form ui. 
 function openForm() {
     let formPage = document.querySelector("form");
     let backgroundForm = document.querySelector(".formContainer")
@@ -157,7 +158,12 @@ function clearForm() {
     document.forms["formInfo"].reset();
 }
 
-//functions finds the pokemon selected in the array and removes it with splice method, saves array to local memory too.
+// ----------------------------------------------
+// ----------------------------------------------
+// DATA MANIPULATION: add, delete, save
+// ----------------------------------------------
+// ----------------------------------------------
+// functions finds the pokemon selected in the array and removes it with splice method, saves array to local memory too.
 function deletePokemon(currPoke) {
     for (let i = 0; i < myBox.length; ++i) {
         if (myBox[i].id == currPoke.id) {
@@ -167,7 +173,7 @@ function deletePokemon(currPoke) {
     saveBox(myBox);
 }
 
-//functions finds the Pokemon by name or number in the pokedex data imported and adds to the myBox array, saves array to local memory. 
+// functions finds the Pokemon by name or number in the pokedex data imported and adds to the myBox array, saves array to local memory. 
 function addPokemonToBox(number, name) {
     for (let i = 0; i < pokedexData.length; ++i) {
         //if the name or number the user inputed match with the pokedex data it adds it to myBox.
@@ -178,6 +184,16 @@ function addPokemonToBox(number, name) {
     saveBox(myBox);
 }
 
+// function saves the array to the local memory
+function saveBox(boxArr) {
+    localStorage.setItem('storedBox', JSON.stringify(boxArr));
+}
+
+// ----------------------------------------------
+// ----------------------------------------------
+// EVENT LISTENERES: forms, buttons
+// ----------------------------------------------
+// ----------------------------------------------
 //eventListener for the Add Pokemon button, calls openForm()
 const addPokemonBtn = document.querySelector('.addPokemonBtn');
 addPokemonBtn.addEventListener('click', () => {
