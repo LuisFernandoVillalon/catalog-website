@@ -25,6 +25,7 @@ HTML, CSS, JavaScript, module, forms, animations, data structures, arrays, objec
 - When the user hovers a button, the button changes color giving a user a warning. 
 
 ## JavaScript
+- The application uses local storage to save the collection array of Pokemon in the user's computer. 
 - A user may add as many Pokemon as they want to their collection from all 898 of them with either their name or Pokedex number.
 - A user may choose to view Pokemon only from a certain type. 
 - A user may decide to "release" or delete any Pokemon they want.
